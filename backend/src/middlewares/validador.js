@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import validarEmail from "../utils/validarEmail.js";
 
 const validador = async (req, res, next) => {

@@ -1,0 +1,16 @@
+services:
+  web:
+    container_name: ct-frontend
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+     - .:/frontend
+     
+    stdin_open: true
+    tty: true
+
+    command: npm run dev 
+    
+  
+

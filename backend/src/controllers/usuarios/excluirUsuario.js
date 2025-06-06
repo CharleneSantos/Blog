@@ -1,4 +1,4 @@
-import pool from "../../connection.js";
+import pool from "../../database.js";
 
 const excluirUsuario = async (req, res) => {
   const { id } = req.params;

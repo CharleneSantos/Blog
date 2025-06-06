@@ -1,0 +1,22 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="#4472c4">
+  <!-- Fundo do calendário -->
+  <rect x="15" y="30" width="120" height="100" rx="10" fill="#4472c4"/>
+  
+  <!-- Linha superior -->
+  <rect x="15" y="30" width="120" height="20" fill="#365899"/>
+  
+  <!-- Argolas do calendário -->
+  <rect x="35" y="15" width="10" height="20" rx="5" fill="#4472c4"/>
+  <rect x="95" y="15" width="10" height="20" rx="5" fill="#4472c4"/>
+  
+  <!-- Dias do calendário -->
+  <circle cx="40" cy="60" r="5" fill="white"/>
+  <circle cx="70" cy="60" r="5" fill="white"/>
+  <circle cx="100" cy="60" r="5" fill="white"/>
+  <circle cx="40" cy="85" r="5" fill="white"/>
+  <circle cx="70" cy="85" r="5" fill="white"/>
+  <circle cx="100" cy="85" r="5" fill="white"/>
+  <circle cx="40" cy="110" r="5" fill="white"/>
+  <circle cx="70" cy="110" r="5" fill="white"/>
+  <circle cx="100" cy="110" r="5" fill="white"/>
+</svg>

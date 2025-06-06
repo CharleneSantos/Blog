@@ -1,4 +1,4 @@
-import pool from "../../connection.js";
+import pool from "../../database.js";
 
 const criarUsuario = async (req, res) => {
   const { name, email, password } = req.body;

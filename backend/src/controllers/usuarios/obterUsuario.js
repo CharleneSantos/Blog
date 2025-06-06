@@ -1,4 +1,4 @@
-import pool from "../../connection.js";
+import pool from "../../database.js";
 
 const obterUsuario = async (req, res) => {
   const { id } = req.params;

@@ -1,0 +1,43 @@
+.navbar {
+  background-color:transparent;
+  display: flex;
+  align-items: center;
+  padding: .5em 2em;
+  justify-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: #26979f;
+}
+
+.brand {
+  font-size: 1.1em;
+}
+
+
+
+.links_list {
+  display: flex;
+  list-style: none;
+  margin-right: 1em;
+  padding-top: 1.1em;
+}
+
+
+
+.links_list li a {
+  padding: .4em .6em;
+}
+
+.active {
+  background-color: #26979f;
+  color: #fff;
+  border-radius: 20px;
+}
+.logo {
+  display: flex;
+  /* text-align: center; */
+}
+
+.logo img {
+  max-width: 70%;
+}

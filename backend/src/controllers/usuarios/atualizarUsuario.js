@@ -1,4 +1,4 @@
-import pool from "../../connection.js";
+import pool from "../../database.js";
 import validarEmail from "../../utils/validarEmail.js";
 
 const atualizarUsuario = async (req, res) => {
