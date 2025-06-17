@@ -1,11 +1,16 @@
 import pool from "../../database.js";
+import bcrypt from "bcryptjs";
 
 const criarUsuario = async (req, res) => {
   const { name, email, password } = req.body;
+
   try {
+    const salt = await bcrypt.genSalt(10);
+    const senha = await bcrypt.hash(password, salt);
     const query =
       "insert into users (name, email, password) values ($1, $2, $3) returning *";
-    const params = [name, email, password];
+
+    const params = [name, email, senha];
 
     const usuario = await pool.query(query, params);
 

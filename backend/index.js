@@ -1,24 +1,25 @@
 import express from "express";
-import dotenv from "dotenv";
 import rotasUsuario from "./src/routes/usuarioRoute.js";
 import rotasPost from "./src/routes/postRoute.js";
-import criarUsuario from "./src/controllers/usuarios/criarUsuario.js";
-import autenticarUsuario from "./src/controllers/autenticacao/autenticarUsuario.js";
-dotenv.config();
+import login from "./src/controllers/usuarios/login.js";
+import autenticadorToken from "./src/middlewares/autenticadorToken.js";
+import listarPosts from "./src/controllers/postagens/listarPosts.js";
+import lerPost from "./src/controllers/postagens/lerPost.js";
 
 const app = express();
 
 app.use(express.json());
 
-app.post("/users", criarUsuario);
-app.get("/autenticacao", autenticarUsuario);
+app.post("/login", login);
+app.get("/login", login);
+app.get("/postagens", listarPosts);
+app.get("/postagem/:id", lerPost);
 
 //middleware de autenticação
-
+app.use(autenticadorToken);
 app.use(rotasUsuario);
 app.use(rotasPost);
-
-const port = 3000;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

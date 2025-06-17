@@ -9,12 +9,13 @@ import validador from "../middlewares/validador.js";
 const rotasUsuario = express.Router();
 
 // Rotas de Usuarios
-rotasUsuario.use("/users", validador);
+
 rotasUsuario.get("/users", listarUsuarios);
 rotasUsuario.get("/users/:id", obterUsuario);
+rotasUsuario.delete("/users/:id", excluirUsuarioUsuario);
+rotasUsuario.use("/users", validador);
 rotasUsuario.post("/users", criarUsuario);
 rotasUsuario.put("/users/:id", atualizarUsuario);
-rotasUsuario.delete("/users/:id", excluirUsuarioUsuario);
 
 // rotas.path("/users");
 

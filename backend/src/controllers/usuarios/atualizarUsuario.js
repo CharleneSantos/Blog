@@ -1,6 +1,5 @@
 import pool from "../../database.js";
 import validarEmail from "../../utils/validarEmail.js";
-
 const atualizarUsuario = async (req, res) => {
   const { id } = req.params;
   const { name, email, password } = req.body;

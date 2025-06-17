@@ -1,0 +1,57 @@
+services:
+  db_postgres:
+    container_name: ct-db-blog
+    image: postgres:14.15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DATABASE}
+    volumes:
+      - db_postgres:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/dump.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - desafiofiap
+
+  app:
+    container_name: ct-app-blog
+    build: .
+    depends_on:
+      - db_postgres
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      DB_HOST: db_postgres
+      DB_USER: postgres
+      DB_PASSWORD: 1234
+      DB_NAME: blog
+    networks:
+      - desafiofiap
+    command: ["npm", "run", "dev"]
+
+  pgAdmin:
+    container_name: ct-pgAdmin-blog
+    image: dpage/pgadmin4
+    depends_on:
+      - db_postgres
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - pgAdmin:/var/lib/pgAdmin
+    ports:
+      - "15432:80"
+    networks:
+      - desafiofiap
+
+volumes:
+  db_postgres:
+  pgAdmin:
+
+networks:
+  desafiofiap:
+    driver: bridge
